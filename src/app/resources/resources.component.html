@@ -1,0 +1,113 @@
+<div id="resources-container" class="resources-container">
+ 
+  <p class="resources-section-title" i18n="@@resources-section.title">{{'resources-section.title' | translate}}</p>
+   
+  
+    <div class="resources">
+        <mat-card class="resources-card">
+          <mat-card-header class="resources-card-header">
+            <img
+              class="resources-logo"
+              mat-card-image
+              src="../../assets/img/dbpedia-torch-logo.png"
+
+              alt="Dbpedia logo"
+
+            />
+          </mat-card-header>
+    
+          <mat-card-content>
+            <p>
+              {{'resources-section.mapping_wiki.desc' | translate}}
+            </p>
+          </mat-card-content>
+    
+          <button class="resources-button" mat-button (click)="openInNewTab('https://mappings.dbpedia.org/index.php/Mapping_am')" i18n>
+            {{'resources-section.mapping_wiki.button' | translate}}
+
+            
+          </button>
+        </mat-card>
+    
+        <mat-card class="resources-card">
+            <mat-card-header class="resources-card-header">
+              <img
+                class="resources-logo"
+                mat-card-image
+                src="../../assets/img/dbpedia-torch-logo.png"
+
+                alt="Dbpedia logo"
+              />
+            </mat-card-header>
+      
+            <mat-card-content>
+              <p>
+                {{'resources-section.mapping_server.desc' | translate}}
+
+               
+              </p>
+            </mat-card-content>
+      
+            <button class="resources-button" mat-button (click)="openInNewTab('http://localhost:9999/server/')">
+              {{'resources-section.mapping_server.button' | translate}}
+              
+           
+            </button>
+          </mat-card>
+    
+          <mat-card class="resources-card">
+            <mat-card-header class="resources-card-header">
+              <img
+                class="resources-logo"
+                mat-card-image
+                src="../../assets/img/github-logo.png"
+                alt="github logo"
+              />
+            </mat-card-header>
+      
+            <mat-card-content>
+              <p>
+              {{'resources-section.dief_source_code.desc' | translate}}
+
+     
+              </p>
+            </mat-card-content>
+      
+            <a class="resources-button" mat-button>
+              {{'resources-section.dief_source_code.button' | translate}}
+
+             
+            </a>
+          </mat-card>
+    
+          <mat-card class="resources-card">
+            <mat-card-header class="resources-card-header">
+              <img
+                class="resources-logo"
+                mat-card-image
+                src="../../assets/img/databus.png"
+                alt="Image with text Dbpedia databus"
+              />
+            </mat-card-header>
+      
+            <mat-card-content>
+              <p>
+              {{'resources-section.raw_dumps.desc' | translate}}
+
+                
+              </p>
+            </mat-card-content>
+      
+            <button class="resources-button" mat-button (click)="openInNewTab('https://databus.dbpedia.org/purplebee/collections/am_chapter/')">
+              {{'resources-section.raw_dumps.button' | translate}}
+
+             
+            </button>
+          </mat-card>
+    
+    
+      </div>
+
+
+
+</div>

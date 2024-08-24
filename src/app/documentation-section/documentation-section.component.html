@@ -1,0 +1,18 @@
+<div id="documentation-container" class="documentation-container">
+  <p class="documentation-section-title" i18n="@@documentation-section_title"> {{'documentation-section.title' | translate}}</p>
+  <div class="description-content">
+    <img
+        class="book-logo"
+        src="../../assets/img/book-logo.png"
+        alt="Book logo"
+      />
+      <div class="description">
+
+      <p  i18n="@@documentation-section_content" [innerHTML]="'documentation-section.content' | translate"> </p>
+        
+      <button class="documentation-button" (click)="openDocumentations()" mat-button i18n="@@documentaiton-section_access_documentation_button">
+        {{'documentation-section.access_documentation_button' | translate}}
+    <em><mat-icon>open_in_new</mat-icon></em></button>
+      </div>
+  </div>
+</div>

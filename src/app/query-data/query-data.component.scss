@@ -1,0 +1,84 @@
+.query-service-container {
+  .description-container {
+    display: flex;
+    justify-content: space-between;
+    // justify-content: center;
+    align-items: center;
+
+    .description-content {
+      // margin-left: 10rem;
+      p {
+        text-align: justify;
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #073144;
+      }
+    }
+    .search {
+      width: 30%;
+      // height: auto;
+      padding: 2rem 0;
+    }
+  }
+  .services-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bolder;
+      color: #073144;
+      text-align: center;
+    }
+    .section-title::after {
+      content: "";
+      width: 4px;
+    }
+
+    .services {
+      align-content: center;
+      justify-content: center;
+      display: flex;
+      .card {
+        width: 25rem;
+        height: auto;
+        display: block;
+        justify-content: center;
+        text-align: center;
+        box-shadow: none;
+        background-color: transparent;
+
+        p {
+          padding: 0 1.9rem;
+          display: flex;
+        }
+        .query-service-card-header {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          height: fit-content;
+
+          .query-service-logo {
+            line-height: 0;
+            // justify-content: center;
+           
+          }
+        }
+        .query-service-button {
+          padding: 0 4rem;
+          background-color: rgb(81, 80, 75);
+          justify-content: center;
+          align-self: flex-end;
+          margin-top: 1.2rem;
+          font-size: 1.2rem;
+          color: aliceblue;
+        }
+      }
+    }
+  }
+}

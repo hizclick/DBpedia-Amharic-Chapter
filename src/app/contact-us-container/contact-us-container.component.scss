@@ -1,0 +1,57 @@
+  
+/* responsive-grid.component.scss */
+
+.contact-us-container{
+    margin: 5% 15%;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Create up to 3 columns */
+    /* Spacing between items */
+    justify-content: center; 
+    
+    align-items: center;
+    
+  }
+  
+  /* Optional: Style for grid items */
+  .grid-item {
+    // background-color: #f4f4f4;
+    // border: 1px solid #ddd;
+    // border-radius: 4px;
+    // padding: 16px;
+    text-align: center;
+    padding: 6% 0;
+    overflow: hidden;
+    width: fit-content;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        max-width: 300px; /* Max width for grid items */
+        max-height: 200px; /* Max height for grid items */
+    }
+  }
+  
+  
+  
+
+  .contact-us{
+    display: flex;
+    font-size: 1.3rem;
+    color: rgb(247, 188, 40);
+    justify-content: center;
+  }
+
+  .contributors{
+    margin-top: 2rem;
+    padding: 2rem;
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    img{
+        width: 5%;
+        height: auto;
+    }
+  }

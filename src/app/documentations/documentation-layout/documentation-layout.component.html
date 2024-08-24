@@ -1,0 +1,25 @@
+
+<div>
+    <app-nav-bar></app-nav-bar>
+    <mat-sidenav-container class="documentation-container">
+    
+        <mat-sidenav mode="side" opened>
+         
+            <mat-list role="list">
+                <mat-list-item role="listitem" class="list-item"><a [routerLink]="['/documentations/sparql-for-beginners']">Basics of SPARQL </a></mat-list-item>
+                <mat-list-item role="listitem" class="list-item"><a [routerLink]="['/documentations/query-am-dbpedia']">Querying Amharic DBpedia</a></mat-list-item>
+                <mat-list-item role="listitem" class="list-item"><a [routerLink]="['/documentations/running-dief-extractor']">Running DIEF Framework</a></mat-list-item>
+                <mat-list-item role="listitem" class="list-item"><a [routerLink]="['/documentations/query-amharic-dbpedia']">Adding New Mapping</a></mat-list-item>
+              </mat-list>
+          
+        
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+
+
+      </mat-sidenav-container>
+</div>

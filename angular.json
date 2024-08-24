@@ -29,10 +29,9 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
+           "styles": ["src/custom-theme.scss"],
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -93,12 +92,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

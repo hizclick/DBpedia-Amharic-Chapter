@@ -1,0 +1,78 @@
+<div id="query-service-container" class="query-service-container">
+
+    <div class="description-container">
+        
+        <div class="description-content">
+            <p class="section-title">
+                {{'query-section.title' |translate}}
+            </p>
+            <p [innerHTML]="'query-section.content' |translate">
+                
+            </p>
+           
+        </div>
+        <img
+        class="search"
+        src="../../assets/img/search.png"
+        alt="A picture that shows a maginfying lens"
+      />
+      
+    </div>
+
+    <div class="services-container">
+        
+        
+       
+        <div class="services">
+          <mat-card class="card">
+            <mat-card-header class="query-service-card-header">
+              <img
+                class="query-service-logo"
+                mat-card-image
+                src="../../assets/img/open-link-virtuoso-logo.png"
+                alt="Open link virtuoso logo"
+              />
+            </mat-card-header>
+      
+            <mat-card-content>
+              <p>{{'query-section.services.virtuoso.desc' |translate}}
+              </p>
+            </mat-card-content>
+      
+            <button
+              class="query-service-button"
+              mat-button
+              (click)="openInNewTab('http://localhost:8000/sparql/')"
+            >
+            {{'query-section.services.virtuoso.button' |translate}}
+            </button>
+          </mat-card>
+      
+          <mat-card class="card">
+            <mat-card-header class="query-service-card-header">
+              <img
+                class="query-service-logo"
+                mat-card-image
+                src="../../assets/img/qlever-logo.png"
+                alt="Qlever logo"
+              />
+            </mat-card-header>
+      
+            <mat-card-content>
+              <p>
+                {{'query-section.services.qlever.desc' |translate}}
+              </p>
+            </mat-card-content>
+      
+            <button
+              class="query-service-button"
+              mat-button
+              (click)="openInNewTab('https://example.com')"
+            >
+            {{'query-section.services.qlever.button' |translate}}
+            </button>
+          </mat-card>
+        </div>
+      </div>
+</div>
+

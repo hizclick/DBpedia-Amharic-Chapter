@@ -1,0 +1,322 @@
+<div class="documentation-content-container">
+  <h1 class="title">Querying Amharic DBpedia</h1>
+  <h2 class="subtitle"></h2>
+  <div class="documentation-content">
+    <div>
+      <div class="paragraph">
+        <h3 class="sub-section-title"></h3>
+        <p></p>
+      </div>
+
+      <div class="paragraph">
+        <h3 class="sub-section-title">Intro</h3>
+        <p>
+          SPARQL is a language designed for querying knowledge bases. If you are
+          already familiar with the SQL query language, SPARQL is quite similar
+          but adapted to semantic web standards. If you're new to SPARQL, refer
+          to this
+          <a [routerLink]="['/documentations/sparql-for-beginners']"
+            >documentation</a
+          >. <br /><br />
+          In this guide, we outline how to query the Amharic DBpedia. For the
+          purpose of this guideline, we will use an example focused on
+          retrieving information about royalties.
+        </p>
+      </div>
+      <div class="paragraph">
+        <h3 class="sub-section-title">Named graphs</h3>
+        <p>
+          A named graph is a powerful feature in RDF that allows you to group
+          triples under a unique identifier, often referred to as a URI. This
+          enables more organized and manageable data, particularly when working
+          with large datasets. In this guide, we will be using the named graph
+        </p>
+        <div class="code-snippet-container">
+      <div class="code-snippet-header">
+      </div>
+      <pre><code class="language-sparql">&lt;http://am.dbpedia.org&gt;</code></pre></div>
+        ,. This graph will serve as the basis for our SPARQL queries.
+        <br />
+
+        <h3 class="sub-section-title">Structure</h3>
+        <p>
+          Say you want to retrieve information about a specific royalty. You
+          might be interested in details such as their title, reign period, and
+          notable achievements. Additionally, it could be useful to see their
+          successors or predecessors. Typically, this kind of information can be
+          found in the infobox on the right side of the Wikipedia page.
+          <br /><br />
+
+          In semantic web, this information is represented as triples: subject,
+          predicate, and object. The subject is the royalty you're interested
+          in, the predicate describes various properties of that royalty, and
+          the object is the specific value or detail you're seeking.
+          <br /><br />
+          To better understand this concept, visit the DBpedia mappings page.
+          You can choose the mapping for your preferred language from the
+          navigation menu on the left. Based on what we found on the DBpedia
+          mapping page, we’ve sketched out the following conceptual schema.
+          <img />
+        </p>
+      </div>
+      <div class="paragraph">
+        <h3 class="sub-section-title">First Simple Query</h3>
+        <p>
+          Let’s begin by navigating to the
+          <a href="">Amharic DBpedia endpoint</a> and running our first query. To
+          get started, we’ll query DBpedia to retrieve all objects belonging to
+          the class "Royalty."
+        </p>
+        <div class="code-snippet-container">
+      <div class="code-snippet-header">
+      </div>
+      <pre><code class="language-sparql">
+          PREFIX dbo: <http://dbpedia.org/ontology/>
+          PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+          
+          SELECT ?s ?p ?o
+          WHERE &#123;
+            ?s rdf:type dbo:Royalty .
+            ?s ?p ?o
+          &#125;
+          LIMIT 10  
+        </code></pre></div>
+        <p>
+          This query retrieves all triples where the subject is of type
+          `dbo:Royalty` and returns the first ten results, as specified by the
+          `LIMIT` clause. The `LIMIT` clause is optional and is used here to
+          restrict the number of results for easier examination.
+        </p>
+      </div>
+      <div class="paragraph">
+        <h3 class="sub-section-title">Query with a Specific Condition</h3>
+        <p>
+          We will use DBpedia to retrieve
+          a list of royalties from Ethiopia who held a specific title during
+          their reign. In this example, we are interested in royalties with the
+          title "ንጉሠ ነገሥት ዘኢትዮጵያ" (King of Ethiopia).
+        </p>
+        <div class="code-snippet-container">
+      <div class="code-snippet-header">
+      </div>
+      <pre><code class="language-sparql">
+          PREFIX dbo: <http://dbpedia.org/ontology/>
+          PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+          PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+          
+          SELECT ?s ?p ?o
+          WHERE &#123;
+            ?s dbo:title "ንጉሠ ነገሥት ዘኢትዮጵያ"&#64;am .
+            ?s ?p ?o
+          &#125;
+          LIMIT 10
+        </code></pre></div>
+
+        <p>
+          Alternatively, we can query the number of royalties who held this
+          title and have a reference in the Amharic Wikipedia.
+        </p>
+
+        <div class="code-snippet-container">
+      <div class="code-snippet-header">
+      </div>
+      <pre><code class="language-sparql">
+          PREFIX dbo: <http://dbpedia.org/ontology/>
+          PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+          SELECT (COUNT(DISTINCT ?s) AS ?royaltyCount)
+          WHERE &#123;
+            ?s rdf:type dbo:Royalty .
+            ?s dbo:title "ንጉሠ ነገሥት ዘኢትዮጵያ"&#64;am .
+          &#125;
+          LIMIT 1
+        </code></pre></div>
+
+        <p>
+          In this query, the `COUNT(DISTINCT ?s)` function is particularly
+          useful because it counts the number of distinct royalties, rather than
+          the total number of triples with that subject. This approach ensures
+          an accurate count of unique royalties, avoiding inflated numbers that
+          might arise from multiple triples associated with the same subject.
+        </p>
+
+        <div class="code-snippet-container">
+      <div class="code-snippet-header">
+      </div>
+      <pre><code class="language-sparql">
+          PREFIX dbo: <http://dbpedia.org/ontology/>
+          PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+          PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+          
+          SELECT ?s ?p ?o
+          WHERE &#123;
+            ?s dbo:title "ንጉሠ ነገሥት ዘኢትዮጵያ"&#64;am .
+            ?s ?p ?o
+          &#125;
+          LIMIT 10
+        </code></pre></div>
+      </div>
+
+      <div class="paragraph">
+        <h3 class="sub-section-title">Checking the Existence of a Fact</h3>
+        <p>
+          Another interesting aspect of SPARQL is that it can be used to answer
+          yes-or-no questions about whether something holds true or not. For
+          instance, we can ask DBpedia whether John Doe is or has been the King
+          of Ethiopia.
+        </p>
+        <div class="code-snippet-container">
+      <div class="code-snippet-header">
+      </div>
+      <pre><code class="language-sparql">
+          PREFIX dbo: <http://dbpedia.org/ontology/>
+          PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+          PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        ASK &#123;
+        ?johnDoe rdfs
+        "John Doe"&#64;en.
+        ?johnDoe rdf
+        dbo
+        .
+        ?johnDoe dbo
+        "ንጉሠ ነገሥት ዘኢትዮጵያ"&#64;am .
+        &#125;
+        LIMIT 1
+        </code></pre></div>
+      </div>
+
+      <div class="paragraph">
+        <h3 class="sub-section-title">
+          Handling UNION Operations in SPARQL Queries
+        </h3>
+        <p>
+          moving on to more complex queires, lets see how we can define a or
+          operation on sparql queries. in this example we will retrive
+          royalities who either father or mother is also a royalty.
+        </p>
+        <div class="code-snippet-container">
+      <div class="code-snippet-header">
+      </div>
+      <pre><code class="language-sparql">
+          
+        </code></pre></div>
+
+        <p>
+          The query retrieves distinct subjects, predicates, objects, and titles
+          (if available) related to royalties. It filters entities to include
+          only those of type dbo:Royalty. The OPTIONAL clause is used to include
+          the title of the royalty if it exists. Additionally, the query checks
+          if the father of the royalty is also of type dbo:Royalty. It also
+          checks if the mother of the royalty is of type dbo:Royalty. The UNION
+          operator is employed to ensure that at least one of these conditions
+          (either the father or the mother being a royalty) is satisfied.
+        </p>
+
+        <div class="code-snippet-container">
+      <div class="code-snippet-header">
+      </div>
+      <pre><code class="language-sparql">
+          PREFIX dbo: <http://dbpedia.org/ontology/>
+          PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+          PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+          SELECT DISTINCT ?royalty ?p ?o ?title
+
+          WHERE &#123;
+            # Check if the person is a royalty
+            ?royalty rdf:type dbo:Royalty .
+            OPTIONAL &#123; ?royalty dbo:title ?title . &#125;
+
+            # Here we check if the father is a royalty
+            &#123;
+              ?royalty dbo:father ?parent .
+              ?parent rdf:type dbo:Royalty .
+            &#125;
+            UNION
+            # Here we check if the mother is a royalty
+            &#123;
+              ?royalty dbo:mother ?parent .
+              ?parent rdf:type dbo:Royalty .
+            &#125;
+
+            ?royalty ?p ?o
+            &#125;
+          LIMIT 10
+
+        </code></pre></div>
+        
+        <p>
+          We can also do a fact checking to see if a royalty has a royalty for a
+          mom or a dad
+        </p>
+
+        <div class="code-snippet-container">
+      <div class="code-snippet-header">
+      </div>
+      <pre><code class="language-sparql">
+          PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+ASK &#123;
+  ?person rdfs:label "ይግባ ጽዮን"&#64;am .
+  
+  # Check if his father is a royalty
+  &#123;
+    ?person dbo:father ?parent .
+    ?parent rdf:type dbo:Royalty .
+  &#125;
+  UNION
+  # Check if his mother is a royalty
+  &#123;
+    ?person dbo:mother ?parent .
+    ?parent rdf:type dbo:Royalty .
+  &#125;
+  &#125;
+
+        </code></pre></div>
+        <p>
+          We can also perform a fact-check to determine if a royalty has a
+          parent who is also a royalty. This involves checking whether either
+          the mother or father of the royalty is of type `dbo:Royalty`.
+        </p>
+        <div class="code-snippet-container">
+      <div class="code-snippet-header">
+      </div>
+      <pre><code class="language-sparql">
+  PREFIX dbo: <http://dbpedia.org/ontology/>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+  ASK &#123;
+    ?person rdfs:label "ይግባ ጽዮን"&#64;am .
+  
+    # Check if his father is a royalty
+    &#123;
+      ?person dbo:father ?parent .
+      ?parent rdf:type dbo:Royalty .
+    &#125;
+    UNION
+    # Check if his mother is a royalty
+    &#123;
+      ?person dbo:mother ?parent .
+      ?parent rdf:type dbo:Royalty .
+    &#125;
+    &#125;
+</code></pre></div>
+        <p>
+          This query checks whether the individual "ይግባ ጽዮን" has either a father
+          or a mother who is a royalty. The `ASK` query will return true if at
+          least one of the conditions is met—i.e., if either the mother or
+          father of the individual is of type `dbo:Royalty`.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <hr />
+
+    <p class="author">Author: Meti Bayissa</p>
+    <p class="date">August, 2024</p>
+  </div>
+</div>

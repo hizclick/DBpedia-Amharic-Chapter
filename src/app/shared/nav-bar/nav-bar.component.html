@@ -1,0 +1,88 @@
+<nav class="navbar">
+  <mat-toolbar color="primary" class="mat-toolbar">
+    <div class="navbar-links">
+      <button
+        mat-button
+        routerLink="/"
+        fragment="about-container"
+        i18n="@@navbar-documenation"
+      >
+        {{ "navbar.about" | translate }}
+      </button>
+
+      <button
+        mat-button
+        [routerLink]="['/']"
+        fragment="query-service-container"
+        routerLinkActive="active-link"
+        i18n="@@navbar-query"
+      >
+        {{ "navbar.query" | translate }}
+      </button>
+
+      <button
+        mat-button
+        routerLink="/"
+        fragment="documentation-container"
+        i18n="@@navbar-documenation"
+      >
+        {{ "navbar.documenation" | translate }}
+      </button>
+
+      <button
+        mat-button
+        routerLink="/"
+        fragment="resources-container"
+        i18n="@@navbar-resources"
+      >
+        {{ "navbar.resources" | translate }}
+      </button>
+
+      <button
+        mat-button
+        routerLink="/"
+        fragment="contact-us-container"
+        i18n="@@navbar-contact_us"
+      >
+        {{ "navbar.contact_us" | translate }}
+      </button>
+      <!-- <hr class="vertical-line"> -->
+    </div>
+    <div class="navbar-lang">
+      <button
+        mat-button
+        [matMenuTriggerFor]="languagesMenu"
+        class="language-toggle-button"
+        i18n="@@navbar-language"
+      >
+        <span>
+          {{ "navbar.language" | translate }}
+          <mat-icon *ngIf="language === 'en'">🇬🇧</mat-icon>
+          <mat-icon *ngIf="language === 'am'">🇪🇹</mat-icon>
+        </span>
+      </button>
+
+      <mat-menu
+        #languagesMenu="matMenu"
+        yPosition="below"
+        xPosition="after"
+        class="language-menu"
+      >
+        <button
+          mat-menu-item
+          (click)="switchLanguage('am')"
+          i18n="@@navbar-language_amharic"
+        >
+          {{ "navbar.language_amharic" | translate }} 🇪🇹
+        </button>
+        <button
+          mat-menu-item
+          (click)="switchLanguage('en')"
+          i18n="@@navbar-language_english"
+        >
+          {{ "navbar.language_english" | translate }} 🇬🇧
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+</nav>

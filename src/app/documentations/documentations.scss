@@ -1,0 +1,64 @@
+// @import "~prismjs/plugins/toolbar/prism-toolbar.css";
+
+.documentation-content-container {
+  margin: 7% 10%;
+  .title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #073144;
+    text-transform: capitalize;
+  }
+  
+  .sub-section-title {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+  }
+  .documentation-content {
+    .paragraph {
+      text-align: justify;
+      line-height: 25px;
+      font-size: 1.1rem;
+      .highlight-language-keyword {
+        color: rgb(232, 11, 118);
+        font: 500;
+      }
+    }
+
+    .code-snippet-container {
+      padding: 0rem 1.5rem;
+
+      margin: 2% 5%;
+    }
+
+    .code-snippet-header {
+      background-color: #eecd62aa;
+      display: flex;
+      height: 1.2rem;
+      justify-content: flex-end;
+      gap: 15px;
+      color: rgb(12, 9, 0);
+    }
+
+    .language-sparql {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    
+    .closing-remarks {
+      margin-top: 7%;
+    }
+  }
+
+  .footer {
+    font-style: italic;
+    color: gray;
+    margin-top: 9%;
+  }
+
+  mat-list-item p {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+}

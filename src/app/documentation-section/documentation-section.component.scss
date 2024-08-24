@@ -1,0 +1,57 @@
+.documentation-container {
+  .documentation-section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #073144;
+  }
+  .description-content {
+    display: flex;
+    justify-content: space-between;
+    text-align: justify;
+
+    .book-logo {
+      padding: 2rem 0;
+    }
+    .description {
+      padding: 0 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .documentation-button {
+      font-size: 1.3rem;
+      padding: 1.2rem 3.5rem;
+      margin-top: 1.2rem;
+      align-self: center;
+      text-align: center;
+      background-color: #f3ba2c;
+    }
+  }
+}
+mat-sidenav-container {
+  height: 100%;
+}
+
+// Move the content down so that it won't be hidden by the toolbar
+mat-sidenav {
+  padding-top: 3.5rem;
+  @media screen and (min-width: 600px) {
+    padding-top: 4rem;
+  }
+
+  .entry {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+  }
+}
+
+// Move the content down so that it won't be hidden by the toolbar
+mat-sidenav-content {
+  padding-top: 3.5rem;
+  @media screen and (min-width: 600px) {
+    padding-top: 4rem;
+  }
+}
