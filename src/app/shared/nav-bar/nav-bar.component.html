@@ -6,8 +6,10 @@
         routerLink="/"
         fragment="about-container"
         i18n="@@navbar-documenation"
+        aria-label="About"
       >
-        {{ "navbar.about" | translate }}
+        <mat-icon class="hide-on-small-screen">info</mat-icon>
+        <span class="show-on-large-screen">{{ "navbar.about" | translate }}</span>
       </button>
 
       <button
@@ -16,8 +18,10 @@
         fragment="query-service-container"
         routerLinkActive="active-link"
         i18n="@@navbar-query"
+        aria-label="Query"
       >
-        {{ "navbar.query" | translate }}
+        <mat-icon class="hide-on-small-screen">search</mat-icon>
+        <span class="show-on-large-screen">{{ "navbar.query" | translate }}</span>
       </button>
 
       <button
@@ -25,8 +29,10 @@
         routerLink="/"
         fragment="documentation-container"
         i18n="@@navbar-documenation"
+        aria-label="Documentation"
       >
-        {{ "navbar.documenation" | translate }}
+        <mat-icon class="hide-on-small-screen">description</mat-icon>
+        <span class="show-on-large-screen">{{ "navbar.documenation" | translate }}</span>
       </button>
 
       <button
@@ -34,8 +40,10 @@
         routerLink="/"
         fragment="resources-container"
         i18n="@@navbar-resources"
+        aria-label="Resources"
       >
-        {{ "navbar.resources" | translate }}
+        <mat-icon class="hide-on-small-screen">folder</mat-icon>
+        <span class="show-on-large-screen">{{ "navbar.resources" | translate }}</span>
       </button>
 
       <button
@@ -43,11 +51,13 @@
         routerLink="/"
         fragment="contact-us-container"
         i18n="@@navbar-contact_us"
+        aria-label="Contact Us"
       >
-        {{ "navbar.contact_us" | translate }}
+        <mat-icon class="hide-on-small-screen">mail</mat-icon>
+        <span class="show-on-large-screen">{{ "navbar.contact_us" | translate }}</span>
       </button>
-      <!-- <hr class="vertical-line"> -->
     </div>
+
     <div class="navbar-lang">
       <button
         mat-button
@@ -86,3 +96,55 @@
     </div>
   </mat-toolbar>
 </nav>
+
+<style>
+  /* General styling for the buttons */
+  .navbar-links {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .navbar-links button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  /* Icons only on small screens */
+  .hide-on-small-screen {
+    display: none;
+  }
+
+  .show-on-large-screen {
+    display: inline;
+  }
+
+  /* Responsive styling for smaller screens */
+  @media (max-width: 600px) {
+    .navbar-links {
+      flex-direction: column; /* Stack buttons vertically */
+      align-items: center;
+    }
+
+    .navbar-links button {
+      font-size: 12px; /* Smaller font for the buttons */
+      padding: 5px;
+    }
+
+    /* Show icons only, hide button text on small screens */
+    .hide-on-small-screen {
+      display: inline-block;
+    }
+
+    .show-on-large-screen {
+      display: none;
+    }
+
+    .navbar-lang {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+  }
+</style>

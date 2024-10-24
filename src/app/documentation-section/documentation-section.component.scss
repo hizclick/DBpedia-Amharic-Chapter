@@ -3,22 +3,25 @@
     font-size: 2.5rem;
     font-weight: bold;
     color: #073144;
+    text-align: center; /* Center title for better alignment */
+    margin-bottom: 2rem; /* Add margin for spacing */
   }
+
   .description-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     text-align: justify;
+    flex-wrap: wrap; /* Enable wrapping on smaller screens */
+    gap: 2rem; /* Add space between elements for smaller screens */
 
     .book-logo {
       padding: 2rem 0;
+      max-width: 100%; /* Ensure the logo scales on smaller screens */
+      height: auto;
     }
-    .description {
-      padding: 0 5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
+
+
     .documentation-button {
       font-size: 1.3rem;
       padding: 1.2rem 3.5rem;
@@ -26,16 +29,61 @@
       align-self: center;
       text-align: center;
       background-color: #f3ba2c;
+      width: fit-content;
     }
   }
 }
+
+/* Adjustments for responsiveness */
+@media (max-width: 768px) {
+  .documentation-container {
+    .documentation-section-title {
+      font-size: 2rem; /* Reduce title size on smaller screens */
+    }
+
+    .description-content {
+      flex-direction: column; /* Stack elements vertically on smaller screens */
+      align-items: center; /* Center-align the content */
+
+      .description {
+        padding: 0 2rem; /* Reduce padding for smaller screens */
+        font-size: 1.1rem; /* Slightly smaller text size */
+      }
+
+      .documentation-button {
+        font-size: 1.1rem; /* Reduce button font size */
+        padding: 1rem 2.5rem; /* Reduce button padding */
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .documentation-container {
+    .description-content {
+      gap: 1rem; /* Reduce gap between items */
+      
+      .description {
+        padding: 0 1rem; /* Further reduce padding */
+        font-size: 1rem; /* Smaller font size for very small screens */
+      }
+
+      .documentation-button {
+        font-size: 1rem;
+        padding: 0.8rem 2rem; /* Smaller button padding */
+      }
+    }
+  }
+}
+
 mat-sidenav-container {
   height: 100%;
 }
 
-// Move the content down so that it won't be hidden by the toolbar
+/* Adjust sidenav padding to ensure it doesn't overlap with the toolbar */
 mat-sidenav {
   padding-top: 3.5rem;
+  
   @media screen and (min-width: 600px) {
     padding-top: 4rem;
   }
@@ -48,9 +96,10 @@ mat-sidenav {
   }
 }
 
-// Move the content down so that it won't be hidden by the toolbar
+/* Adjust sidenav content padding for toolbar visibility */
 mat-sidenav-content {
   padding-top: 3.5rem;
+  
   @media screen and (min-width: 600px) {
     padding-top: 4rem;
   }

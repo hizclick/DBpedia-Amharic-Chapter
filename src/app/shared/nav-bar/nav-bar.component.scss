@@ -1,64 +1,107 @@
 .navbar {
   width: 100%;
-  .mat-toolbar{
+}
 
-  
-    display: flex;
-    justify-content: space-between;
-    background-color: #073144;
-    color: #f0f8ff;
-    padding:0;
-    
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #073144;
+  color: #f0f8ff;
+  padding: 0;
+}
 
-    .navbar-links {
-      display: flex;
-      align-items: center;
-      font-weight: bold;
-      // padding: 20px 5px;
-      // margin: 10px 5px;
+.navbar-links {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  width: 100%;
+  
+}
 
-      button {
-        display: block;
-        padding: 1rem 1.25rem 1rem 1.25rem;
-        margin-left: 10px;
-        font-size: 1.2rem;
-        height: fit-content;
-        
-        
-        
-      }
-      .vertical-line {
-          height: 100%;
-          width: 1px;
-          background-color: #f70808;
-          margin: 0 10px;
-        
-      }
-    }
-    .navbar-lang {
-      position: relative; /* For positioning the dropdown */
-      display: flex;
-      align-items: center;
-      margin: 0 1.4rem;
-      
-      .language-toggle-button span{
-        display: flex;
-        gap:5px;
-        font-size: 1.2rem;
-        align-items: center;
-      }
-  
-      .language-menu {
-        min-width: 150px; /* Adjust as needed */
-       
-      }
-    }
-  }
-    
-  }
-  
-  .active-link {
-    color: #ff4081; /* Active link color */
+.navbar-links button {
+  display: block;
+  padding: 1rem 1.25rem;
+  margin-left: 10px;
+  font-size: 1.2rem;
+  height: fit-content;
+}
+
+.navbar-lang {
+  display: flex;
+  align-items: center;
+  margin: 0 1.4rem;
+  position: relative;
+}
+
+.language-toggle-button span {
+  display: flex;
+  gap: 5px;
+  font-size: 1.2rem;
+  align-items: center;
+}
+
+.language-menu {
+  min-width: 150px;
+}
+
+.active-link {
+  color: #ff4081;
+}
+
+/* Responsive Adjustments for Small Screens */
+@media (max-width: 768px) {
+  .mat-toolbar {
+    flex-direction: column; /* Stack items vertically on small screens */
+    padding: 2rem 1rem; /* Increase padding for taller toolbar */
+    height: auto; /* Allow dynamic height */
+    min-height: 80px; /* Set a minimum height for the toolbar */
   }
 
-  
+  .navbar-links {
+    justify-content: center; /* Center the links */
+    margin-bottom: 1rem; /* Add space between links and language switcher */
+  }
+
+  .navbar-links button {
+    font-size: 1rem; /* Adjust button size for smaller screens */
+    padding: 0.8rem 1rem;
+  }
+
+  .navbar-lang {
+    justify-content: center; /* Center the language toggle */
+  }
+
+  .hide-on-small-screen {
+    display: inline-block;
+  }
+
+  .show-on-large-screen {
+    display: none;
+  }
+}
+
+/* For medium and large screens */
+@media (min-width: 769px) {
+  .mat-toolbar {
+    flex-direction: row; /* Keep row layout for larger screens */
+    padding: 1rem; /* Default padding */
+    height: auto; /* Default height */
+  }
+
+  .navbar-links {
+    justify-content: flex-start; /* Align links to the left */
+  }
+
+  .navbar-lang {
+    justify-content: flex-end; /* Align language switcher to the right */
+  }
+
+  .hide-on-small-screen {
+    display: none;
+  }
+
+  .show-on-large-screen {
+    display: inline;
+  }
+}

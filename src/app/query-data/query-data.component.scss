@@ -2,11 +2,13 @@
   .description-container {
     display: flex;
     justify-content: space-between;
-    // justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 
     .description-content {
-      // margin-left: 10rem;
+      flex: 1;
+      margin-right: 2rem;
+
       p {
         text-align: justify;
         font-size: 1.2rem;
@@ -18,67 +20,116 @@
         color: #073144;
       }
     }
+
     .search {
-      width: 30%;
-      // height: auto;
+      flex: 1;
+      width: 100%;
+      max-width: 400px;
       padding: 2rem 0;
     }
   }
+
   .services-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     .section-title {
       font-size: 2rem;
       font-weight: bolder;
       color: #073144;
       text-align: center;
-    }
-    .section-title::after {
-      content: "";
-      width: 4px;
+      margin-bottom: 2rem;
     }
 
     .services {
-      align-content: center;
-      justify-content: center;
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem; /* Add space between the cards */
+
       .card {
-        width: 25rem;
-        height: auto;
-        display: block;
-        justify-content: center;
+        width: 100%;
+        max-width: 25rem; /* Limit the card width */
+        min-height: 400px; /* Ensure a minimum consistent height for the cards */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Stretch content to fill the card */
+        padding: 1rem; /* Padding for card content */
+        border: 1px solid #ddd; /* Optional: Add a border to the card */
         text-align: center;
-        box-shadow: none;
         background-color: transparent;
 
         p {
           padding: 0 1.9rem;
+          flex-grow: 1; /* Let the text grow in height */
           display: flex;
+          justify-content: center;
+          align-items: center; /* Center the text within the space */
         }
+
         .query-service-card-header {
           display: inline-flex;
           justify-content: center;
           align-items: center;
           height: fit-content;
-
-          .query-service-logo {
-            line-height: 0;
-            // justify-content: center;
-           
-          }
         }
+
+        .query-service-logo {
+          line-height: 0;
+        }
+
         .query-service-button {
-          padding: 0 4rem;
+          padding: 0.8rem 2rem; /* Adjust padding for the button */
           background-color: rgb(81, 80, 75);
           justify-content: center;
-          align-self: flex-end;
-          margin-top: 1.2rem;
           font-size: 1.2rem;
           color: aliceblue;
+          text-align: center;
+          margin-top: 1.5rem; /* Add margin between text and button */
+          align-self: center; /* Center the button horizontally */
         }
       }
     }
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .description-container {
+    flex-direction: column;
+    text-align: center;
+
+    .description-content {
+      margin-right: 0;
+      margin-bottom: 2rem;
+    }
+
+    .search {
+      max-width: 100%;
+    }
+  }
+
+  .services-container .services {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .services-container .card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    min-height: 400px; /* Ensure consistent height on small screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .description-container {
+    justify-content: space-between;
+  }
+
+  .search {
+    width: 30%;
   }
 }

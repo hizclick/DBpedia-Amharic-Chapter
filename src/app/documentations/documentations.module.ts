@@ -28,7 +28,7 @@ import { NgChartsModule } from 'ng2-charts';
     DocumentationsRoutingModule,
     MatListModule,
     MatIconModule,
-    NgChartsModule
+    NgChartsModule,
   ],
   providers: [HighlightService] 
 })

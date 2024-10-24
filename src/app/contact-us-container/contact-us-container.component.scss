@@ -1,57 +1,106 @@
-  
-/* responsive-grid.component.scss */
+.contact-us-container {
+  margin: 5% 5%;
+}
 
-.contact-us-container{
-    margin: 5% 15%;
+a {
+  text-decoration: none; /* Correct way to remove underline */
 }
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Create up to 3 columns */
-    /* Spacing between items */
-    justify-content: center; 
-    
-    align-items: center;
-    
-  }
-  
-  /* Optional: Style for grid items */
-  .grid-item {
-    // background-color: #f4f4f4;
-    // border: 1px solid #ddd;
-    // border-radius: 4px;
-    // padding: 16px;
-    text-align: center;
-    padding: 6% 0;
-    overflow: hidden;
-    width: fit-content;
-    height: fit-content;
-    justify-content: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create 3 columns on large screens */
+  gap: 2rem; /* Spacing between grid items */
+  justify-content: center;
+  align-items: center;
+}
 
-    img{
-        max-width: 300px; /* Max width for grid items */
-        max-height: 200px; /* Max height for grid items */
-    }
-  }
-  
-  
-  
 
-  .contact-us{
-    display: flex;
-    font-size: 1.3rem;
-    color: rgb(247, 188, 40);
-    justify-content: center;
+/* Optional: Style for grid items */
+.grid-item {
+  text-align: center;
+  padding: 6% 0;
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Max height for grid items */
+  }
+}
+
+
+.contact-us {
+  display: flex;
+  font-size: 1.3rem;
+  color: rgb(247, 188, 40);
+  justify-content: center;
+}
+
+.contributors {
+  margin-top: 2rem;
+  padding: 2rem;
+  gap: 2rem;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 5%;
+    height: auto;
+  }
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Grid layout with min/max size */
+  gap: 1rem; /* Consistent gap between items */
+  justify-items: center; /* Horizontally center each item */
+  align-items: center; /* Vertically center each item */
+}
+
+.grid-item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  justify-items: center; /* Horizontally center each item */
+  align-items: center; /* Vertically center each item */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; 
   }
 
-  .contributors{
-    margin-top: 2rem;
-    padding: 2rem;
-    gap: 2rem;
-    display: flex;
-    justify-content: center;
-    img{
-        width: 5%;
-        height: auto;
-    }
+  .grid-item img {
+    max-width: 80px; 
+    max-height: 80px;
   }
+
+  .contact-us-container {
+    margin: 5% 8%; 
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 1rem; 
+  }
+
+  .grid-item img {
+    max-width: 200px; 
+    max-height: 120px;
+  }
+
+  .contact-us-container {
+    margin: 5% 5%; 
+  }
+
+  .contributors img {
+    width: 10%; 
+  }
+}

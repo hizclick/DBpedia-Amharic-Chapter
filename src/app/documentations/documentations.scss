@@ -1,7 +1,6 @@
-// @import "~prismjs/plugins/toolbar/prism-toolbar.css";
-
 .documentation-content-container {
   margin: 7% 10%;
+
   .title {
     text-align: center;
     font-size: 2.5rem;
@@ -9,25 +8,27 @@
     color: #073144;
     text-transform: capitalize;
   }
-  
+
   .sub-section-title {
     font-size: 1.4rem;
     text-transform: capitalize;
+    margin-bottom: 1rem;
   }
+
   .documentation-content {
     .paragraph {
       text-align: justify;
       line-height: 25px;
       font-size: 1.1rem;
+      
       .highlight-language-keyword {
         color: rgb(232, 11, 118);
-        font: 500;
+        font-weight: 500;
       }
     }
 
     .code-snippet-container {
-      padding: 0rem 1.5rem;
-
+      padding: 0 1.5rem;
       margin: 2% 5%;
     }
 
@@ -38,6 +39,7 @@
       justify-content: flex-end;
       gap: 15px;
       color: rgb(12, 9, 0);
+      padding: 0.5rem;
     }
 
     .language-sparql {
@@ -45,7 +47,6 @@
       padding: 0 !important;
     }
 
-    
     .closing-remarks {
       margin-top: 7%;
     }
@@ -55,10 +56,82 @@
     font-style: italic;
     color: gray;
     margin-top: 9%;
+    text-align: center;
   }
 
   mat-list-item p {
     word-wrap: break-word;
     white-space: pre-wrap;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .documentation-content-container {
+    margin: 5% 8%; 
+
+    .title {
+      font-size: 2rem; 
+    }
+
+    .sub-section-title {
+      font-size: 1.3rem;
+    }
+
+    .documentation-content {
+      .paragraph {
+        font-size: 1rem; 
+        line-height: 22px;
+      }
+
+      .code-snippet-container {
+        margin: 2% 2%;
+      }
+
+      .code-snippet-header {
+        height: auto; 
+        padding: 0.3rem; 
+      }
+    }
+
+    .footer {
+      margin-top: 7%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .documentation-content-container {
+    margin: 5% 5%; 
+
+    .title {
+      font-size: 1.8rem; 
+    }
+
+    .sub-section-title {
+      font-size: 1.2rem;
+    }
+
+    .documentation-content {
+      .paragraph {
+        font-size: 0.95rem;
+        line-height: 20px; 
+      }
+
+      .code-snippet-container {
+        margin: 2% 1%; 
+        padding: 0 1rem; 
+      }
+
+      .code-snippet-header {
+        font-size: 0.9rem;
+        padding: 0.2rem; 
+      }
+    }
+
+    .footer {
+      font-size: 0.9rem; 
+      margin-top: 6%;
+    }
   }
 }

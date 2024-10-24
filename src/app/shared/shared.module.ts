@@ -27,7 +27,7 @@ import { TranslateModule } from '@ngx-translate/core';
     MatListModule,
     SharedRoutingModule,
     MatDividerModule,
-    TranslateModule
+    TranslateModule,
   ],
   exports: [NavBarComponent],
   providers: [

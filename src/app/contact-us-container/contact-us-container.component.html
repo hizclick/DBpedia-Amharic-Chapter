@@ -2,22 +2,27 @@
 
 <div id="contact-us-container" class="contact-us-container">
    
-<div class="grid-container">
-    <div class="grid-item" *ngFor="let img of images">
-        <img src="{{ img.path }}" alt="{{img.alt}}" width="80%" height="80%">
-    </div>
 
-  </div>
   <div class="contributors">
-    <img src="../../assets/img/DBpedia-Logo.png" alt="">
-  <p> Meti Bayissa, Hizkiel Alemayehu, Prof. Dr. Ricardo Usbek C, Tilahun Taffa </p>
 
 
+    <p>
+      <a href="www.google.com">Meti Bayissa</a>, 
+      <a href="#">Hizkiel Alemayehu</a>, 
+      <a href="#">Prof. Dr. Ricardo Usbeck</a>, 
+      <a href="#">Tilahun Taffa</a>
+    </p>
+    
   </div>
   <div class="contact-us">
-    <a href="http://" target="_blank" rel="noopener noreferrer" mat-button> Linkedin <mat-icon>linkedin</mat-icon></a>
-    <a href="http://" target="_blank" rel="noopener noreferrer" mat-button> Email us <mat-icon>email</mat-icon></a>
-    
+       
+<div class="grid-container">
+  <div class="grid-item" *ngFor="let img of images" >
+      <img src="{{ img.path }}" alt="{{img.alt}}" width="80%" height="80%">
+  </div>
+
+</div>
+   
       
 </div>
 </div>

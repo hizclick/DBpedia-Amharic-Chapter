@@ -2,10 +2,34 @@
   // background-color: gray;
 
   .container {
-    margin: 0 10rem;
+    margin: 0 5rem;
     background-color: white;
   }
+
   mat-divider {
     margin: 5rem 0 !important;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .main-container .container {
+    margin: 0 3rem; /* Reduce margin for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container .container {
+    margin: 0 2rem; /* Further reduce margin for smaller tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container .container {
+    margin: 0 1rem; /* Minimal margin for small mobile screens */
+  }
+
+  mat-divider {
+    margin: 2rem 0 !important; /* Reduce divider margin for smaller screens */
   }
 }

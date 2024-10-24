@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
+
   language:string = 'en';
   opened = true
   switchLanguage(lang:string) :void{
