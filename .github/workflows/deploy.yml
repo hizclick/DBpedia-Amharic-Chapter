@@ -26,11 +26,11 @@ jobs:
 
       # Step 4: Build Angular app
       - name: Build Angular app
-        run: npx ng build --configuration=production --output-path=dist
+        run: npx ng build --configuration=production --output-path=dist/am-dbpedia-org
 
       # Step 5: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: .dist/am-dbpedia-org
